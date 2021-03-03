@@ -23,23 +23,9 @@ function IdentityHandler(common) {
 }
 IdentityHandler.prototype.onUserIdentified = function(mParticleUser) {
     var mPUser = mParticleUser.getUserIdentities().userIdentities;
-    var userId = '';
-
-    switch (this.common.settings.userIdentificationType) {
-      case ('CustomerId'):
-        userId = mPUser.customerid;
-        break;
-      case ('Email'):
-        window.UserLeap('setEmail', mPUser.email);
-        break;
-      default:
-        userId = mPUser.customerid;
-        break;
-    }
-
-    if (userId !== '' && typeof userId !== undefined) {
-        window.UserLeap('setUserId', userId);
-    }
+    if (!mpUser) return;
+    if (mpUser.customerid) window.UserLeap('setUserId', mpUser.customerid);
+    if (mpUser.email) window.UserLeap('setEmail', mpUser.email);
 };
 IdentityHandler.prototype.onIdentifyComplete = function(
     mParticleUser,
