@@ -1,5 +1,5 @@
 {
-  "name": "integration-UserLeap",
+  "name": "@userleap/mparticle-web-kit",
   "version": "1.0.0",
   "scripts": {
     "testKarma": "node test/boilerplate/test-karma.js",
