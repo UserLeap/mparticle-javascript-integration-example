@@ -21,7 +21,12 @@ For more userIdentity types, see http://docs.mparticle.com/developers/sdk/javasc
 function IdentityHandler(common) {
     this.common = common || {};
 }
-IdentityHandler.prototype.onUserIdentified = function(mParticleUser) {};
+IdentityHandler.prototype.onUserIdentified = function(mParticleUser) {
+    var mPUser = mParticleUser.getUserIdentities().userIdentities;
+    if (!mpUser) return;
+    if (mpUser.customerid) window.UserLeap('setUserId', mpUser.customerid);
+    if (mpUser.email) window.UserLeap('setEmail', mpUser.email);
+};
 IdentityHandler.prototype.onIdentifyComplete = function(
     mParticleUser,
     identityApiRequest
@@ -47,6 +52,15 @@ IdentityHandler.prototype.onSetUserIdentity = function(
     forwarderSettings,
     id,
     type
-) {};
+) {
+    switch (type) {
+        case 1:
+            window.UserLeap('setUserId', id);
+            break; 
+        case 7:
+            window.UserLeap('setEmail', id);
+            break;
+    }
+};
 
 module.exports = IdentityHandler;
