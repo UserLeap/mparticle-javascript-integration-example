@@ -29,5 +29,25 @@
   },
   "dependencies": {
     "@mparticle/web-sdk": "^2.12.2"
-  }
+  },
+  "description": "UserLeap Javascript integration for mParticle",
+  "main": "dist/UserLeap-Kit.common.js",
+  "files": [
+    "dist/UserLeap-Kit.common.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UserLeap/mparticle-javascript-integration-userleap.git"
+  },
+  "keywords": [
+    "userleap",
+    "mparticle",
+    "javascript",
+    "kit"
+  ],
+  "author": "andrew@userleap.com",
+  "bugs": {
+    "url": "https://github.com/UserLeap/mparticle-javascript-integration-userleap/issues"
+  },
+  "homepage": "https://github.com/UserLeap/mparticle-javascript-integration-userleap#readme"
 }
